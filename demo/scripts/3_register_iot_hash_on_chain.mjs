@@ -16,7 +16,7 @@ import { createWeb3, getAccounts, getRegistryContract, registerIoTData } from ".
 
   // --- IoTデータ(CID)の読み込み ---
   // 既存のプロセスで生成されたCIDファイルを読み込む
-  const iotData = JSON.parse(fs.readFileSync("demo/output/iot_data.json", "utf8"));
+  const iotData = JSON.parse(fs.readFileSync("demo/output/ipfs_cid.txt", "utf8"));
   const cid = iotData.cid;
 
   console.log("[1] 登録する IoTデータ情報:");
