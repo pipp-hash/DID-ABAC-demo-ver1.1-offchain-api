@@ -51,4 +51,19 @@ contract DIDRegistry {
     function getIoTDataCount(address owner) public view returns(uint256) {
         return iotData[owner].length;
     }
+
+// --- 以下、今回追加するアクセスポリシー検証機能 ---
+    
+    // policyId と ハッシュ値 を紐付けて保存する台帳
+    mapping(string => bytes32) public policyHashes;
+
+    // ポリシーのハッシュ値を記録（ユーザAがポリシーを作成した時に呼び出す）
+    function registerPolicyHash(string memory policyId, bytes32 hash) public {
+        policyHashes[policyId] = hash;
+    }
+
+    // ポリシーが改ざんされていないか検証（アクセス検証時に呼び出す）
+    function verifyPolicy(string memory policyId, bytes32 providedHash) public view returns (bool) {
+        return policyHashes[policyId] == providedHash;
+    }
 }
