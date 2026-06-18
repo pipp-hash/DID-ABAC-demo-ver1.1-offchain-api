@@ -39,15 +39,3 @@ import { register } from "module";
   console.log("🎉 Step3 完了: IoT データ登録成功");
   console.log("==========================================\n");
 })();
-
-// 追加する連携処理の例
-const policyResponse = await fetch('http://localhost:3000/api/policies', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    policyId: "policy_for_" + cid,
-    targetData: cid,
-    rule: { requiredAttribute: "Collaborator", issuer: "did:example:company" }
-  })
-});
-console.log("✅ オフチェーンポリシーを自動登録しました");
