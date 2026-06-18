@@ -10,7 +10,7 @@ import fs from "fs";
   // 1. UserAのDIDと、保存されているCIDを読み込む（既存資産の利用）
   const userA_DID = "did:example:userA";
   // 既存のIPFS登録時や3_register...で生成されたCIDファイルを読み込む想定
-  const iotData = JSON.parse(fs.readFileSync("demo/output/iot_data.json", "utf8"));
+  const iotData = JSON.parse(fs.readFileSync("demo/output/ipfs_cid.txt", "utf8"));
   const targetCid = iotData.cid;
 
   console.log("--- ステップ7: ユーザAによるデータアクセス確認 ---");
